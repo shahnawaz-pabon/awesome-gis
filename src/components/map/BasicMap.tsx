@@ -1,10 +1,25 @@
-import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  LayersControl,
+  Marker,
+  Tooltip,
+} from "react-leaflet";
 import { LatLngExpression } from "leaflet";
+import { useEffect, useState } from "react";
+import { data } from "../../store/places";
+import { Place } from "../../store/models";
 
 export const BasicMap = () => {
   const defaultPosition: LatLngExpression = [
     23.727785445600595, 90.41076504068958,
   ]; // Bangladesh
+
+  const [places, setPlaces] = useState(data);
+
+  useEffect(() => {
+    console.log(places);
+  }, [places]);
 
   return (
     <div className="map-container">
@@ -63,6 +78,16 @@ export const BasicMap = () => {
             />
           </LayersControl.BaseLayer>
           {/* End of Terrain View */}
+
+          {places.map((place: Place) => (
+            <Marker
+              key={place.title}
+              position={place.position}
+              eventHandlers={{ click: () => console.log("Clicked") }}
+            >
+              <Tooltip>{place.title}</Tooltip>
+            </Marker>
+          ))}
         </LayersControl>
       </MapContainer>
     </div>
