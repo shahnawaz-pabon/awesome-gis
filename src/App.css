@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+/* Map's css */
+
+main {
+  display: flex;
+  position: fixed;
+}
+
+.map-container {
+  width: 100vw;
+}
+/* Map's css */
