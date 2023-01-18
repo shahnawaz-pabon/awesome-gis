@@ -9,6 +9,14 @@ import { LatLngExpression } from "leaflet";
 import { useEffect, useState } from "react";
 import { data } from "../../store/places";
 import { Place } from "../../store/models";
+import L from "leaflet";
+
+var placeIcon = L.icon({
+  iconUrl: "/place-marker.png",
+  iconSize: [45, 45], // size of the icon
+//   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+//   popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+});
 
 export const BasicMap = () => {
   const defaultPosition: LatLngExpression = [
@@ -84,6 +92,7 @@ export const BasicMap = () => {
               key={place.title}
               position={place.position}
               eventHandlers={{ click: () => console.log("Clicked") }}
+              icon={placeIcon}
             >
               <Tooltip>{place.title}</Tooltip>
             </Marker>
