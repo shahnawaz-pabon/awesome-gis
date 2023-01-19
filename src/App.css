@@ -58,11 +58,19 @@ main {
   margin-top: 5px !important;
 }
 
-.leaflet-popup-content {
-  font-family: "ubuntu";
-}
-
 .popup-image {
   max-width: 370px;
 }
+
 /* Popup CSS */
+
+/* Header CSS */
+.header-container {
+  background-color: #1abc9c;
+  padding: 1rem 0;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+/* Header CSS */
