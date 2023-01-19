@@ -37,7 +37,7 @@
   }
 }
 
-/* Map's css */
+/* Map's CSS */
 
 main {
   display: flex;
@@ -47,4 +47,22 @@ main {
 .map-container {
   width: 100vw;
 }
-/* Map's css */
+/* Map's CSS */
+
+/* Popup CSS */
+.font-size-15 {
+  font-size: 12px !important;
+}
+
+.mt-5 {
+  margin-top: 5px !important;
+}
+
+.leaflet-popup-content {
+  font-family: "ubuntu";
+}
+
+.popup-image {
+  max-width: 370px;
+}
+/* Popup CSS */

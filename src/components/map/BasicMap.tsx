@@ -4,18 +4,20 @@ import {
   LayersControl,
   Marker,
   Tooltip,
+  Popup,
 } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { data } from "../../store/places";
 import { Place } from "../../store/models";
 import L from "leaflet";
+import PlaceMapPopup from "../place/PlaceMapPopup";
 
 var placeIcon = L.icon({
-  iconUrl: "/place-marker.png",
+  iconUrl: "/assets/place-marker.png",
   iconSize: [45, 45], // size of the icon
-//   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-//   popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+  //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+  //   popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 });
 
 export const BasicMap = () => {
@@ -24,10 +26,23 @@ export const BasicMap = () => {
   ]; // Bangladesh
 
   const [places, setPlaces] = useState(data);
+  const [showPopUp, setShowPopUp] = useState(true);
 
   useEffect(() => {
     console.log(places);
   }, [places]);
+
+  const eventHandlers = useMemo(
+    () => ({
+      dragend(e: any) {
+        console.log(e.target.getLatLng());
+      },
+      click: (e: any) => {
+        console.log(e.target);
+      },
+    }),
+    []
+  );
 
   return (
     <div className="map-container">
@@ -91,10 +106,16 @@ export const BasicMap = () => {
             <Marker
               key={place.title}
               position={place.position}
-              eventHandlers={{ click: () => console.log("Clicked") }}
+              // eventHandlers={{ click: (e) => {eventHandlers(e)}}}
+              eventHandlers={eventHandlers}
               icon={placeIcon}
             >
-              <Tooltip>{place.title}</Tooltip>
+              {/* <Tooltip>{place.title}</Tooltip> */}
+              {showPopUp && (
+                <Popup minWidth={370}>
+                  <PlaceMapPopup data={place} />
+                </Popup>
+              )}
             </Marker>
           ))}
         </LayersControl>
