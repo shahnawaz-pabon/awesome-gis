@@ -12,6 +12,7 @@ import { data } from "../../store/places";
 import { Place } from "../../store/models";
 import L from "leaflet";
 import PlaceMapPopup from "../place/PlaceMapPopup";
+import LocationMarker from "./LocationMarker";
 
 var placeIcon = L.icon({
   iconUrl: "/assets/place-marker.png",
@@ -27,6 +28,7 @@ export const BasicMap = () => {
 
   const [places, setPlaces] = useState(data);
   const [showPopUp, setShowPopUp] = useState(true);
+  const [showCurrentLocation, setShowCurrentLocation] = useState(false);
 
   useEffect(() => {
     console.log(places);
@@ -119,6 +121,8 @@ export const BasicMap = () => {
             </Marker>
           ))}
         </LayersControl>
+
+        <LocationMarker />
       </MapContainer>
     </div>
   );
