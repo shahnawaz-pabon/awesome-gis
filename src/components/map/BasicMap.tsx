@@ -47,10 +47,6 @@ export const BasicMap = () => {
     []
   );
 
-  const handleCurrentLocationControlClick = useCallback(() => {
-    setShowCurrentLocation((prev) => !prev);
-  }, []);
-
   // useEffect(() => {
   // }, []);
 
@@ -132,7 +128,6 @@ export const BasicMap = () => {
 
         <CurrentLocationControlButton
           icon="fa-crosshairs fa-lg"
-          handleControlClick={handleCurrentLocationControlClick}
           title="Current Location"
         />
       </MapContainer>

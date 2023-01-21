@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Marker, Popup, useMap } from "react-leaflet";
+import { Circle, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet-easybutton";
 import "leaflet-easybutton/src/easy-button.css";
 import L, { LatLngExpression } from "leaflet";
 
-const CurrentLocationControlButton = ({
-  icon,
-  handleControlClick,
-  title,
-}: any) => {
+const CurrentLocationControlButton = ({ icon, title }: any) => {
   const map = useMap();
   var ranonce = false;
   const defaultPosition: LatLngExpression = [
@@ -16,6 +12,10 @@ const CurrentLocationControlButton = ({
   ];
   const [position, setPosition] = useState(null);
   const [bbox, setBbox] = useState([]);
+  const greenOptions = { color: "#1ABC9C" };
+  const [radius, setRadius] = useState(1000);
+  const [center, setCenter] = useState();
+  const [showCircleArea, setshowCircleArea] = useState(false);
 
   const currentLocationIcon = L.icon({
     iconSize: [35, 35],
@@ -40,9 +40,11 @@ const CurrentLocationControlButton = ({
               btn.state("back-to-the-map");
               map.locate().on("locationfound", function (e: any) {
                 setPosition(e.latlng);
-                const radius = e.accuracy;
-                const circle = L.circle(e.latlng, radius);
-                circle.addTo(map);
+                setshowCircleArea(true);
+                // const radius = e.accuracy;
+                // const circle = L.circle(e.latlng, radius);
+                // circle.addTo(map);
+                setCenter(e.latlng);
                 setBbox(e.bounds.toBBoxString().split(","));
                 map.flyTo(e.latlng, 15);
               });
@@ -53,6 +55,7 @@ const CurrentLocationControlButton = ({
             icon: "fa-solid fa-map-location-dot",
             title: "back to the map",
             onClick: function (btn, map) {
+              setshowCircleArea(false);
               btn.state("zoom-to-current-location");
               map.flyTo(defaultPosition, 7);
             },
@@ -68,17 +71,28 @@ const CurrentLocationControlButton = ({
   //   controlButton.addTo(map);
   // }, []);
 
-  return position === null ? null : (
-    <Marker position={position} icon={currentLocationIcon}>
-      <Popup>
-        You are here. <br />
-        Map bbox: <br />
-        <b>Southwest lng</b>: {bbox[0]} <br />
-        <b>Southwest lat</b>: {bbox[1]} <br />
-        <b>Northeast lng</b>: {bbox[2]} <br />
-        <b>Northeast lat</b>: {bbox[3]}
-      </Popup>
-    </Marker>
+  return (
+    <>
+      {showCircleArea && position && (
+        <Circle
+          className="radius-circle"
+          center={position}
+          pathOptions={greenOptions}
+          radius={radius}
+        >
+          <Marker position={position} icon={currentLocationIcon}>
+            <Popup>
+              You are here. <br />
+              Map bbox: <br />
+              <b>Southwest lng</b>: {bbox[0]} <br />
+              <b>Southwest lat</b>: {bbox[1]} <br />
+              <b>Northeast lng</b>: {bbox[2]} <br />
+              <b>Northeast lat</b>: {bbox[3]}
+            </Popup>
+          </Marker>
+        </Circle>
+      )}
+    </>
   );
 };
 
