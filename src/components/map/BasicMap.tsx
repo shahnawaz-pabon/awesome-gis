@@ -5,14 +5,15 @@ import {
   Marker,
   Tooltip,
   Popup,
+  useMap,
 } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { data } from "../../store/places";
 import { Place } from "../../store/models";
 import L from "leaflet";
 import PlaceMapPopup from "../place/PlaceMapPopup";
-import LocationMarker from "./LocationMarker";
+import CurrentLocationControlButton from "../button/CurrentLocationControlButton";
 
 var placeIcon = L.icon({
   iconUrl: "/assets/place-marker.png",
@@ -32,7 +33,7 @@ export const BasicMap = () => {
 
   useEffect(() => {
     console.log(places);
-  }, [places]);
+  }, []);
 
   const eventHandlers = useMemo(
     () => ({
@@ -45,6 +46,13 @@ export const BasicMap = () => {
     }),
     []
   );
+
+  const handleCurrentLocationControlClick = useCallback(() => {
+    setShowCurrentLocation((prev) => !prev);
+  }, []);
+
+  // useEffect(() => {
+  // }, []);
 
   return (
     <div className="map-container">
@@ -122,7 +130,11 @@ export const BasicMap = () => {
           ))}
         </LayersControl>
 
-        <LocationMarker />
+        <CurrentLocationControlButton
+          icon="fa-crosshairs fa-lg"
+          handleControlClick={handleCurrentLocationControlClick}
+          title="Current Location"
+        />
       </MapContainer>
     </div>
   );

@@ -74,3 +74,20 @@ main {
   font-weight: bold;
 }
 /* Header CSS */
+
+.my-button {
+  background: #fff;
+  cursor: pointer;
+}
+
+.my-button:hover {
+  background: #f4f4f4;
+}
+
+.my-button:active {
+  background: #bb9595;
+}
+
+.my-button i {
+  margin: 9px 7px;
+}
