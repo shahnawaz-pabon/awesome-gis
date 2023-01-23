@@ -9,11 +9,12 @@ import {
 } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
 import { useEffect, useState, useMemo, useCallback, useRef } from "react";
-import { data } from "../../store/places";
-import { Place } from "../../store/models";
+import { data } from "../../constants/places";
+import { Place } from "../../constants/models";
 import L from "leaflet";
 import PlaceMapPopup from "../place/PlaceMapPopup";
 import CurrentLocationControlButton from "../button/CurrentLocationControlButton";
+import { useSelector } from "react-redux";
 
 var placeIcon = L.icon({
   iconUrl: "/assets/place-marker.png",
@@ -27,7 +28,7 @@ export const BasicMap = () => {
     23.727785445600595, 90.41076504068958,
   ]; // Bangladesh
 
-  const [places, setPlaces] = useState(data);
+  const { places } = useSelector((state: any) => state.places);
   const [showPopUp, setShowPopUp] = useState(true);
   const [showCurrentLocation, setShowCurrentLocation] = useState(false);
 
