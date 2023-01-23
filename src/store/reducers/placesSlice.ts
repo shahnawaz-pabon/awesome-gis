@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const placesSlice = createSlice({
-  name: "places",
+  name: "placesState",
   initialState,
   reducers: {
     setPlaces: (state, action) => {
@@ -14,5 +14,7 @@ export const placesSlice = createSlice({
     },
   },
 });
+
+export const { setPlaces } = placesSlice.actions;
 
 export default placesSlice.reducer;
