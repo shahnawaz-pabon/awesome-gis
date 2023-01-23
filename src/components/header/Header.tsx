@@ -1,6 +1,9 @@
 import { CgPlayListSearch } from "react-icons/cg";
+import { useDispatch } from "react-redux";
+import { setShowSearchBar } from "../../store/reducers/placesSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <div className="header-container">
       <CgPlayListSearch
@@ -11,7 +14,7 @@ const Header = () => {
           left: "1rem",
           top: "10px",
         }}
-        onClick={() => console.log("Header clicked")}
+        onClick={() => dispatch(setShowSearchBar(true))}
       ></CgPlayListSearch>
       <span>Bangladesh</span>
     </div>

@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BasicMap } from "./components/map/BasicMap";
 import Header from "./components/header/Header";
+import { PlaceSearch } from "./components/place/PlaceSearch";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Header />
       </nav>
       <main>
+        <PlaceSearch />
         <BasicMap />
       </main>
     </>

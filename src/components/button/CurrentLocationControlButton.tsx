@@ -30,7 +30,7 @@ const CurrentLocationControlButton = ({ icon, title }: any) => {
 
     if (!ranonce) {
       L.easyButton({
-        position: "topleft",
+        position: "topright",
         states: [
           {
             stateName: "zoom-to-current-location", // name the state
