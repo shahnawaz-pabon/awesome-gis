@@ -1,11 +1,13 @@
 import {
   MapContainer,
   TileLayer,
+  LayerGroup,
   LayersControl,
   Marker,
   Tooltip,
   Popup,
   useMap,
+  ZoomControl,
 } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
 import { useEffect, useState, useMemo, useCallback, useRef } from "react";
@@ -57,6 +59,7 @@ export const BasicMap = () => {
         center={defaultPosition}
         zoom={7}
         id="my-map"
+        zoomControl={false}
         style={{ height: "100vh" }}
       >
         <LayersControl position="topright">
@@ -79,24 +82,45 @@ export const BasicMap = () => {
           </LayersControl.BaseLayer>
           {/* End of Satellite View */}
 
+          {/* Google Maps */}
+          <LayersControl.BaseLayer name="Google Maps">
+            <TileLayer
+              attribution="Google Maps"
+              url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"
+            />
+          </LayersControl.BaseLayer>
+          {/* End of Google Maps */}
+
+          {/* Google Maps Satellite */}
+          <LayersControl.BaseLayer name="Google Map Satellite">
+            <LayerGroup>
+              <TileLayer
+                attribution="Google Maps Satellite"
+                url="https://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}"
+              />
+              <TileLayer url="https://www.google.cn/maps/vt?lyrs=y@189&gl=cn&x={x}&y={y}&z={z}" />
+            </LayerGroup>
+          </LayersControl.BaseLayer>
+          {/* End of Google Maps Satellite */}
+
           {/* Streets View */}
-          <LayersControl.BaseLayer name="StreetView">
+          {/* <LayersControl.BaseLayer name="StreetView">
             <TileLayer
               url="https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}" // google street, subdomains={['mt0','mt1','mt2','mt3']}
               maxZoom={18}
               subdomains={["mt0", "mt1", "mt2", "mt3"]}
             />
-          </LayersControl.BaseLayer>
+          </LayersControl.BaseLayer> */}
           {/* End of Streets View */}
 
           {/* Hybrid View */}
-          <LayersControl.BaseLayer name="HybridView">
+          {/* <LayersControl.BaseLayer name="HybridView">
             <TileLayer
               url="https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}" // google hybrid, subdomains={['mt0','mt1','mt2','mt3']}
               maxZoom={18}
               subdomains={["mt0", "mt1", "mt2", "mt3"]}
             />
-          </LayersControl.BaseLayer>
+          </LayersControl.BaseLayer> */}
           {/* End of Hybrid View */}
 
           {/* Terrain View */}
@@ -131,6 +155,7 @@ export const BasicMap = () => {
           icon="fa-crosshairs fa-lg"
           title="Current Location"
         />
+        <ZoomControl position="topright" />
       </MapContainer>
     </div>
   );
