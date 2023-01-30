@@ -16,7 +16,9 @@ import { Place } from "../../constants/models";
 import L from "leaflet";
 import PlaceMapPopup from "../place/PlaceMapPopup";
 import CurrentLocationControlButton from "../button/CurrentLocationControlButton";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import DefaultModal from "../modal/DefaultModal";
+import { setSelectedPlace } from "../../store/reducers/placesSlice";
 
 var placeIcon = L.icon({
   iconUrl: "/assets/place-marker.png",
@@ -26,11 +28,13 @@ var placeIcon = L.icon({
 });
 
 export const BasicMap = () => {
+  const dispatch = useDispatch();
+
   const defaultPosition: LatLngExpression = [
     23.727785445600595, 90.41076504068958,
   ]; // Bangladesh
 
-  const { places } = useSelector((state: any) => state.places);
+  const { places, selectedPlace } = useSelector((state: any) => state.places);
   const [showPopUp, setShowPopUp] = useState(true);
   const [showCurrentLocation, setShowCurrentLocation] = useState(false);
 

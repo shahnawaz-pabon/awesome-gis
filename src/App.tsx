@@ -4,6 +4,7 @@ import "./App.css";
 import { BasicMap } from "./components/map/BasicMap";
 import Header from "./components/header/Header";
 import { PlaceSearch } from "./components/place/PlaceSearch";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
