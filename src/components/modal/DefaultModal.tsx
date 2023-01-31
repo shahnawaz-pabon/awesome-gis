@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal } from "@themesberg/react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Image } from "react-bootstrap";
 
 const DefaultModal = ({
   show = false,
@@ -19,6 +20,7 @@ const DefaultModal = ({
         show={show}
         onHide={onClose}
         contentClassName={className}
+        size="lg"
       >
         <Modal.Header>
           <Modal.Title
@@ -29,7 +31,30 @@ const DefaultModal = ({
           </Modal.Title>
           <Button variant="close" aria-label="Close" onClick={onClose} />
         </Modal.Header>
-        <Modal.Body>{children}</Modal.Body>
+        <Modal.Body>
+          <Image
+            style={{
+              width: "100%",
+              height: "275px",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            src={children?.picture}
+          />
+          <div>
+            <br />
+          </div>
+          <p>{children?.description}</p>
+        </Modal.Body>
+        <Modal.Footer style={{ textAlign: "center" }}>
+          <Button
+            variant="secondary"
+            href={children?.seeMoreLink}
+            target="_blank"
+          >
+            See More
+          </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );

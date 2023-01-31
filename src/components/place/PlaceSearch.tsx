@@ -53,7 +53,7 @@ export const PlaceSearch = () => {
         ref={nodeRef}
         show={showDefaultModal}
         title={selectedPlace?.title}
-        children={selectedPlace?.description}
+        children={selectedPlace}
         onClose={() => {
           dispatch(setSelectedPlace({}));
           setShowDefaultModal(false);
