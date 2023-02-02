@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const ZoomControlButton = ({ position }: any) => {
   const map = useMap();
-  const { zoomIn, zoomOut } = useSelector((state: any) => state.mapPoints);
+  const { zoomIn, zoomOut } = useSelector((state: any) => state.map);
 
   useEffect(() => {
     L.control

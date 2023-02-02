@@ -7,7 +7,6 @@ import {
   Tooltip,
   Popup,
   useMap,
-  ZoomControl,
 } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
 import { useEffect, useState, useMemo, useCallback, useRef } from "react";
@@ -19,6 +18,7 @@ import CurrentLocationControlButton from "../button/CurrentLocationControlButton
 import { useSelector, useDispatch } from "react-redux";
 import DefaultModal from "../modal/DefaultModal";
 import { setSelectedPlace } from "../../store/reducers/placesSlice";
+import ZoomControlButton from "../button/ZoomControlButton";
 
 var placeIcon = L.icon({
   iconUrl: "/assets/place-marker.png",
@@ -159,7 +159,7 @@ export const BasicMap = () => {
           icon="fa-crosshairs fa-lg"
           title="Current Location"
         />
-        <ZoomControl position="topright" />
+        <ZoomControlButton position="topright" />
       </MapContainer>
     </div>
   );
