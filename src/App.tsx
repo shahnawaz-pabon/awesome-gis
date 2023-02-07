@@ -6,6 +6,10 @@ import Header from "./components/header/Header";
 import { PlaceSearch } from "./components/place/PlaceSearch";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const Portal = React.lazy(() => import("./layouts/portal/Portal"));
+
 function App() {
   return (
     // <div className="App">
@@ -25,13 +29,24 @@ function App() {
     //   </header>
     // </div>
     <>
-      <nav>
+      <BrowserRouter>
+        {/* <React.Suspense fallback={<ProgressBar />}> */}
+        <Routes>
+          <Route
+            path="/portal"
+            // name="Portal"
+            element={<Portal />}
+          />
+        </Routes>
+        {/* </React.Suspense> */}
+      </BrowserRouter>
+      {/* <nav>
         <Header />
       </nav>
       <main>
         <PlaceSearch />
         <BasicMap />
-      </main>
+      </main> */}
     </>
   );
 }
