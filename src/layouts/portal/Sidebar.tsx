@@ -19,7 +19,7 @@ import {
 } from "@themesberg/react-bootstrap";
 import { navItems } from "../../navs";
 import ReactHero from "../../@core/assets/img/preview.png";
-// import "./sidebar.css";
+import "./sidebar.css";
 
 export default (props: any = {}) => {
   const location = useLocation();
@@ -164,7 +164,7 @@ export default (props: any = {}) => {
                 </div>
               </Link>
               {navs.map(({ nav, navIndex }: any) => {
-                if (nav.children !== undefined && nav.children.length) {
+                if (nav?.children !== undefined && nav?.children?.length) {
                   return (
                     <CollapsableNavItem
                       key={navIndex}
@@ -188,10 +188,10 @@ export default (props: any = {}) => {
                   return (
                     <NavItem
                       key={navIndex}
-                      title={nav.title}
+                      title={nav?.title}
                       // icon={faCog}
-                      icon={nav.icon}
-                      link={nav.path}
+                      icon={nav?.icon}
+                      link={nav?.path}
                     />
                   );
                 }
