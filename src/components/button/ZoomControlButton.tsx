@@ -8,20 +8,24 @@ const ZoomControlButton = ({ position }: any) => {
   const { zoomIn, zoomOut } = useSelector((state: any) => state.map);
 
   useEffect(() => {
-    L.control
-      .zoom({
-        position: position,
-      })
-      .addTo(map);
-  }, [map]);
+    const zoomControl = L.control.zoom({
+      position,
+    });
+
+    map.addControl(zoomControl);
+
+    return () => {
+      map.removeControl(zoomControl);
+    };
+  }, [map, position]);
 
   useEffect(() => {
     map.zoomIn();
-  }, [zoomIn]);
+  }, [map, zoomIn]);
 
   useEffect(() => {
     map.zoomOut();
-  }, [zoomOut]);
+  }, [map, zoomOut]);
 
   return null;
 };
