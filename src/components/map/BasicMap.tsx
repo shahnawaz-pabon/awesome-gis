@@ -19,6 +19,8 @@ import { useSelector, useDispatch } from "react-redux";
 import DefaultModal from "../modal/DefaultModal";
 import { setSelectedPlace } from "../../store/reducers/placesSlice";
 import ZoomControlButton from "../button/ZoomControlButton";
+import BangladeshGeoJSON from "./BangladeshGeoJSON";
+import bar from "../../data/bangladesh.json";
 
 var placeIcon = L.icon({
   iconUrl: "/assets/place-marker.png",
@@ -37,6 +39,34 @@ export const BasicMap = () => {
   const { places, selectedPlace } = useSelector((state: any) => state.places);
   const [showPopUp, setShowPopUp] = useState(true);
   const [showCurrentLocation, setShowCurrentLocation] = useState(false);
+  const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
+  const [geoJSONData, setGeoJSONData] = useState<any>(null);
+
+  const handleFeatureClick = (featureId: string) => {
+    setSelectedFeature(featureId);
+  };
+
+  useEffect(() => {
+    const fetchGeoJSONData = async () => {
+      try {
+        // const response = await fetch(
+        //   "https://github.com/fahimreza-dev/bangladesh-geojson/blob/980d8a11db228d49e6aeb6c177f48ae121ac72ab/bangladesh.geojson"
+        // );
+        // const data = await response.json();
+        // const content = atob(data.content);
+        // const parsedData = JSON.parse(content);
+        setGeoJSONData(bar);
+      } catch (error) {
+        console.error("Error fetching GeoJSON data:", error);
+      }
+    };
+
+    fetchGeoJSONData();
+  }, []);
+
+  useEffect(() => {
+    console.log(geoJSONData);
+  }, [geoJSONData]);
 
   useEffect(() => {
     console.log(places);
@@ -155,11 +185,27 @@ export const BasicMap = () => {
           ))}
         </LayersControl>
 
+        {/* Start | User's current location */}
         <CurrentLocationControlButton
           icon="fa-crosshairs fa-lg"
           title="Current Location"
         />
+        {/* End | User's current location */}
+
+        {/* Start | Zoom in and Zoom out button */}
         <ZoomControlButton position="topright" />
+        {/* End | Zoom in and Zoom out button */}
+
+        {/* Start | Bangladesh's GeoJSON */}
+
+        {geoJSONData && (
+          <BangladeshGeoJSON
+            data={geoJSONData}
+            selectedFeature={selectedFeature}
+            onFeatureClick={handleFeatureClick}
+          />
+        )}
+        {/* End | Bangladesh's GeoJSON */}
       </MapContainer>
     </div>
   );
