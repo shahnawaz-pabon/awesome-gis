@@ -20,7 +20,9 @@ import DefaultModal from "../modal/DefaultModal";
 import { setSelectedPlace } from "../../store/reducers/placesSlice";
 import ZoomControlButton from "../button/ZoomControlButton";
 import BangladeshGeoJSON from "./BangladeshGeoJSON";
-import bar from "../../data/bangladesh.json";
+import bangladesh from "../../data/bangladesh.json";
+import cities from "../../data/bd-cities.json";
+import BangladeshCities from "./BangladeshCities";
 
 var placeIcon = L.icon({
   iconUrl: "/assets/place-marker.png",
@@ -41,6 +43,7 @@ export const BasicMap = () => {
   const [showCurrentLocation, setShowCurrentLocation] = useState(false);
   const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
   const [geoJSONData, setGeoJSONData] = useState<any>(null);
+  const [bdCities, setBdCities] = useState<any>(null);
 
   const handleFeatureClick = (featureId: string) => {
     setSelectedFeature(featureId);
@@ -49,13 +52,8 @@ export const BasicMap = () => {
   useEffect(() => {
     const fetchGeoJSONData = async () => {
       try {
-        // const response = await fetch(
-        //   "https://github.com/fahimreza-dev/bangladesh-geojson/blob/980d8a11db228d49e6aeb6c177f48ae121ac72ab/bangladesh.geojson"
-        // );
-        // const data = await response.json();
-        // const content = atob(data.content);
-        // const parsedData = JSON.parse(content);
-        setGeoJSONData(bar);
+        setGeoJSONData(bangladesh);
+        setBdCities(cities);
       } catch (error) {
         console.error("Error fetching GeoJSON data:", error);
       }
@@ -195,6 +193,12 @@ export const BasicMap = () => {
             )}
           </LayersControl.Overlay>
           {/* End | Bangladesh's GeoJSON */}
+
+          {/* Start | Bangladesh's Cities */}
+          <LayersControl.Overlay checked={false} name="Bangladesh's cities">
+            {bdCities && <BangladeshCities citiesData={bdCities} />}
+          </LayersControl.Overlay>
+          {/* End | Bangladesh's Cities */}
         </LayersControl>
 
         {/* Start | User's current location */}
