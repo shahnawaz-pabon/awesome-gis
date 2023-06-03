@@ -183,6 +183,18 @@ export const BasicMap = () => {
               )}
             </Marker>
           ))}
+
+          {/* Start | Bangladesh's GeoJSON */}
+          <LayersControl.Overlay checked={false} name="Show Bangladesh's area">
+            {geoJSONData && (
+              <BangladeshGeoJSON
+                data={geoJSONData}
+                selectedFeature={selectedFeature}
+                onFeatureClick={handleFeatureClick}
+              />
+            )}
+          </LayersControl.Overlay>
+          {/* End | Bangladesh's GeoJSON */}
         </LayersControl>
 
         {/* Start | User's current location */}
@@ -195,17 +207,6 @@ export const BasicMap = () => {
         {/* Start | Zoom in and Zoom out button */}
         <ZoomControlButton position="topright" />
         {/* End | Zoom in and Zoom out button */}
-
-        {/* Start | Bangladesh's GeoJSON */}
-
-        {geoJSONData && (
-          <BangladeshGeoJSON
-            data={geoJSONData}
-            selectedFeature={selectedFeature}
-            onFeatureClick={handleFeatureClick}
-          />
-        )}
-        {/* End | Bangladesh's GeoJSON */}
       </MapContainer>
     </div>
   );

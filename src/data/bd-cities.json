@@ -1,0 +1,145 @@
+[
+  {
+    "city": "Dhaka", 
+    "lat": "23.7639", 
+    "lng": "90.3889", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Dhaka", 
+    "capital": "primary", 
+    "population": "18627000", 
+    "population_proper": "8906039"
+  }, 
+  {
+    "city": "Chattogram", 
+    "lat": "22.3350", 
+    "lng": "91.8325", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Chattogram", 
+    "capital": "admin", 
+    "population": "7000000", 
+    "population_proper": "2581643"
+  }, 
+  {
+    "city": "Nārāyanganj", 
+    "lat": "23.6200", 
+    "lng": "90.5000", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Dhaka", 
+    "capital": "", 
+    "population": "1572386", 
+    "population_proper": "1572386"
+  }, 
+  {
+    "city": "Khulna", 
+    "lat": "22.8167", 
+    "lng": "89.5500", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Khulna", 
+    "capital": "admin", 
+    "population": "1400689", 
+    "population_proper": "1400689"
+  }, 
+  {
+    "city": "Gāzipura", 
+    "lat": "23.9889", 
+    "lng": "90.3750", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Dhaka", 
+    "capital": "", 
+    "population": "1199215", 
+    "population_proper": "1199215"
+  }, 
+  {
+    "city": "Rangapukur", 
+    "lat": "25.5600", 
+    "lng": "89.2500", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Rangpur", 
+    "capital": "", 
+    "population": "1031388", 
+    "population_proper": "1031388"
+  }, 
+  {
+    "city": "Mymensingh", 
+    "lat": "24.7539", 
+    "lng": "90.4031", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Mymensingh", 
+    "capital": "admin", 
+    "population": "576722", 
+    "population_proper": "576722"
+  }, 
+  {
+    "city": "Bogra", 
+    "lat": "24.8500", 
+    "lng": "89.3667", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Rājshāhi", 
+    "capital": "", 
+    "population": "400983", 
+    "population_proper": "400983"
+  }, 
+  {
+    "city": "Tungi", 
+    "lat": "23.9000", 
+    "lng": "90.4100", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Dhaka", 
+    "capital": "", 
+    "population": "350000", 
+    "population_proper": "350000"
+  }, 
+  {
+    "city": "Siddhirganj", 
+    "lat": "23.6833", 
+    "lng": "90.5167", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Dhaka", 
+    "capital": "", 
+    "population": "256760", 
+    "population_proper": "256760"
+  }, 
+  {
+    "city": "Narsingdi", 
+    "lat": "23.9167", 
+    "lng": "90.7167", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Dhaka", 
+    "capital": "", 
+    "population": "185128", 
+    "population_proper": "185128"
+  }, 
+  {
+    "city": "Sirājganj", 
+    "lat": "24.4500", 
+    "lng": "89.7500", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Rājshāhi", 
+    "capital": "", 
+    "population": "167200", 
+    "population_proper": "167200"
+  }, 
+  {
+    "city": "Maijdi", 
+    "lat": "22.8333", 
+    "lng": "91.1000", 
+    "country": "Bangladesh", 
+    "iso2": "BD", 
+    "admin_name": "Chattogram", 
+    "capital": "", 
+    "population": "130842", 
+    "population_proper": "130842"
+  }
+]

@@ -57,7 +57,7 @@ const CurrentLocationControlButton = ({ icon, title }: any) => {
             onClick: function (btn, map) {
               setshowCircleArea(false);
               btn.state("zoom-to-current-location");
-              map.flyTo(defaultPosition, 7);
+              map.flyTo(defaultPosition, 6);
             },
           },
         ],
