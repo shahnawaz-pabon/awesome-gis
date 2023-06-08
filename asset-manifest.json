@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/awesome-gis/static/css/main.a51fe423.css",
-    "main.js": "/awesome-gis/static/js/main.5d951dde.js",
+    "main.js": "/awesome-gis/static/js/main.c2a7559d.js",
     "static/css/180.a6ca4cfb.chunk.css": "/awesome-gis/static/css/180.a6ca4cfb.chunk.css",
     "static/js/180.e1c0e693.chunk.js": "/awesome-gis/static/js/180.e1c0e693.chunk.js",
     "static/js/787.10c9de37.chunk.js": "/awesome-gis/static/js/787.10c9de37.chunk.js",
@@ -9,7 +9,7 @@
     "static/media/preview.png": "/awesome-gis/static/media/preview.b096e62ded6c8020066a.png",
     "index.html": "/awesome-gis/index.html",
     "main.a51fe423.css.map": "/awesome-gis/static/css/main.a51fe423.css.map",
-    "main.5d951dde.js.map": "/awesome-gis/static/js/main.5d951dde.js.map",
+    "main.c2a7559d.js.map": "/awesome-gis/static/js/main.c2a7559d.js.map",
     "180.a6ca4cfb.chunk.css.map": "/awesome-gis/static/css/180.a6ca4cfb.chunk.css.map",
     "180.e1c0e693.chunk.js.map": "/awesome-gis/static/js/180.e1c0e693.chunk.js.map",
     "787.10c9de37.chunk.js.map": "/awesome-gis/static/js/787.10c9de37.chunk.js.map",
@@ -17,6 +17,6 @@
   },
   "entrypoints": [
     "static/css/main.a51fe423.css",
-    "static/js/main.5d951dde.js"
+    "static/js/main.c2a7559d.js"
   ]
 }
