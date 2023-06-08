@@ -17,12 +17,19 @@ const CurrentLocationControlButton = ({ icon, title }: any) => {
   const [center, setCenter] = useState();
   const [showCircleArea, setshowCircleArea] = useState(false);
 
-  const currentLocationIcon = L.icon({
-    iconSize: [35, 35],
-    // iconAnchor: [10, 41],
-    // popupAnchor: [2, -40],
-    iconUrl: "/assets/location-pin.png",
-    // shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png"
+  // const currentLocationIcon = L.icon({
+  //   iconSize: [35, 35],
+  //   // iconAnchor: [10, 41],
+  //   // popupAnchor: [2, -40],
+  //   iconUrl: "./assets/location-pin.png",
+  //   // shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png"
+  // });
+
+  var currentLocationIcon = L.AwesomeMarkers.icon({
+    icon: "fa-crosshairs",
+    prefix: "fa",
+    markerColor: "blue",
+    iconColor: "white",
   });
 
   useEffect(() => {

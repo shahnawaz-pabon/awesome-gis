@@ -22,13 +22,22 @@ import ZoomControlButton from "../button/ZoomControlButton";
 import BangladeshGeoJSON from "./BangladeshGeoJSON";
 import bangladesh from "../../data/bangladesh.json";
 import cities from "../../data/bd-cities.json";
+import divisions from "../../data/bd-divisions.json";
 import BangladeshCities from "./BangladeshCities";
+import "leaflet.awesome-markers/dist/leaflet.awesome-markers";
 
-var placeIcon = L.icon({
-  iconUrl: "/assets/place-marker.png",
-  iconSize: [35, 35], // size of the icon
-  //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-  //   popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+var placeIcon = L.AwesomeMarkers.icon({
+  icon: "fa-hourglass-2",
+  prefix: "fa",
+  markerColor: "darkred",
+  iconColor: "white",
+});
+
+var divisionIcon = L.AwesomeMarkers.icon({
+  icon: "fa-map-signs",
+  prefix: "fa",
+  markerColor: "darkgreen",
+  iconColor: "white",
 });
 
 export const BasicMap = () => {
@@ -44,6 +53,7 @@ export const BasicMap = () => {
   const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
   const [geoJSONData, setGeoJSONData] = useState<any>(null);
   const [bdCities, setBdCities] = useState<any>(null);
+  const [bdDivisions, setBdDivisions] = useState<any>(null);
 
   const handleFeatureClick = (featureId: string) => {
     setSelectedFeature(featureId);
@@ -54,6 +64,7 @@ export const BasicMap = () => {
       try {
         setGeoJSONData(bangladesh);
         setBdCities(cities);
+        setBdDivisions(divisions);
       } catch (error) {
         console.error("Error fetching GeoJSON data:", error);
       }
@@ -63,12 +74,9 @@ export const BasicMap = () => {
   }, []);
 
   useEffect(() => {
-    console.log(geoJSONData);
-  }, [geoJSONData]);
-
-  useEffect(() => {
-    console.log(places);
-  }, []);
+    console.log("bdDivisions");
+    console.log(bdDivisions);
+  }, [bdDivisions]);
 
   const eventHandlers = useMemo(
     () => ({
@@ -164,6 +172,21 @@ export const BasicMap = () => {
             />
           </LayersControl.BaseLayer>
           {/* End of Terrain View */}
+
+          {bdDivisions &&
+            bdDivisions.map((division: any) => {
+              return (
+                <Marker
+                  key={division.id}
+                  position={[division.lat, division.long]}
+                  icon={divisionIcon}
+                >
+                  <Popup>
+                    <h4>{division.name}</h4>
+                  </Popup>
+                </Marker>
+              );
+            })}
 
           {places.map((place: Place) => (
             <Marker

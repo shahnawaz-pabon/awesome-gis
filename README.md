@@ -9,6 +9,7 @@
 - [Features](#features)
 - [Manual install and run](#manual-install-and-run)
 - [Running via docker](#running-via-docker)
+- [Datasets](#datasets)
 
 ### Prerequisites
 
@@ -41,3 +42,5 @@ git clone https://github.com/shahnawaz-pabon/awesome-gis.git
 cd awesome-gis
 docker-compose up --build
 ```
+
+### Datasets
