@@ -33,3 +33,11 @@ npm start
 ```
 
 ### Running via docker
+
+Make sure you've installed `docker` and `docker-compose`
+
+```sh
+git clone https://github.com/shahnawaz-pabon/awesome-gis.git
+cd awesome-gis
+docker-compose up --build
+```
