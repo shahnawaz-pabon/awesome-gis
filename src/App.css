@@ -23,6 +23,16 @@ main {
   max-width: 370px;
 }
 
+.place-popup-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.place-see-more {
+  margin-top: 1rem;
+}
+
 .leaflet-popup-content {
   font-family: "Ubuntu";
 }

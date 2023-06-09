@@ -198,7 +198,11 @@ export const BasicMap = () => {
             >
               {/* <Tooltip>{place.title}</Tooltip> */}
               {showPopUp && (
-                <Popup minWidth={370}>
+                <Popup
+                  minWidth={370}
+                  autoPan={false} // Disable default autoPan behavior
+                  autoPanPaddingTopLeft={[0, 100]} // Adjust top padding to center the popup
+                >
                   <PlaceMapPopup data={place} />
                 </Popup>
               )}
