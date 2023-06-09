@@ -132,6 +132,7 @@ main {
   --nav-width: 68px;
   --first-color: #111111;
   --first-color-light: #afa5d9;
+  --second-color: #2c3e50;
   --white-color: #f7f6fb;
   --body-font: "Ubuntu", sans-serif;
   --normal-font-size: 1rem;
@@ -141,7 +142,7 @@ main {
 .body-area {
   position: relative;
   margin: var(--header-height) 0 0 0;
-  padding: 0 1rem;
+  padding: 0 0rem;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   transition: 0.5s;
@@ -273,7 +274,7 @@ main {
 @media screen and (min-width: 768px) {
   .body-area {
     margin: calc(var(--header-height) + 1rem) 0 0 0;
-    padding-left: calc(var(--nav-width) + 2rem);
+    padding-left: calc(var(--nav-width));
   }
 
   .header {

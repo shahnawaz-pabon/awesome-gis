@@ -1,13 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCog,
-  faSignOutAlt,
-  faTable,
-  faTimes,
-  faThLarge,
-  faThList,
-  faMap,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faList } from "@fortawesome/free-solid-svg-icons";
 
 export const NavigationBar = ({ showNav, setShowNav }: any) => {
   const handleClick = () => {
@@ -24,7 +16,7 @@ export const NavigationBar = ({ showNav, setShowNav }: any) => {
             onClick={handleClick}
           />
         ) : (
-          <FontAwesomeIcon icon={faTable} onClick={handleClick} />
+          <FontAwesomeIcon icon={faList} onClick={handleClick} />
         )}
       </div>
       <div className="header-img">

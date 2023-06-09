@@ -27,16 +27,16 @@ import BangladeshCities from "./BangladeshCities";
 import "leaflet.awesome-markers/dist/leaflet.awesome-markers";
 
 var placeIcon = L.AwesomeMarkers.icon({
-  icon: "fa-hourglass-2",
+  icon: "fa-flag",
   prefix: "fa",
-  markerColor: "darkred",
+  markerColor: "red",
   iconColor: "white",
 });
 
 var divisionIcon = L.AwesomeMarkers.icon({
-  icon: "fa-map-signs",
+  icon: "fa-bank",
   prefix: "fa",
-  markerColor: "darkgreen",
+  markerColor: "orange",
   iconColor: "white",
 });
 
