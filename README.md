@@ -44,3 +44,6 @@ docker-compose up --build
 ```
 
 ### Datasets
+
+- [The Humanitarian Data Exchange](https://data.humdata.org/group/bgd)
+- [Digital Maps & Geospatial Data](https://maps.princeton.edu/)
