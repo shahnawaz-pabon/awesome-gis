@@ -23,7 +23,9 @@ import BangladeshGeoJSON from "./BangladeshGeoJSON";
 import bangladesh from "../../data/bangladesh.json";
 import cities from "../../data/bd-cities.json";
 import divisions from "../../data/bd-divisions.json";
+import rivers from "../../data/bd-rivers.json";
 import BangladeshCities from "./BangladeshCities";
+import GeoJSONMap from "./GeoJSONMap";
 import "leaflet.awesome-markers/dist/leaflet.awesome-markers";
 
 var placeIcon = L.AwesomeMarkers.icon({
@@ -54,6 +56,7 @@ export const BasicMap = () => {
   const [geoJSONData, setGeoJSONData] = useState<any>(null);
   const [bdCities, setBdCities] = useState<any>(null);
   const [bdDivisions, setBdDivisions] = useState<any>(null);
+  const [bdRivers, setBdRivers] = useState<any>(null);
 
   const handleFeatureClick = (featureId: string) => {
     setSelectedFeature(featureId);
@@ -65,6 +68,7 @@ export const BasicMap = () => {
         setGeoJSONData(bangladesh);
         setBdCities(cities);
         setBdDivisions(divisions);
+        setBdRivers(rivers);
       } catch (error) {
         console.error("Error fetching GeoJSON data:", error);
       }
@@ -97,7 +101,7 @@ export const BasicMap = () => {
     <div className="map-container">
       <MapContainer
         center={defaultPosition}
-        zoom={7}
+        zoom={8}
         id="my-map"
         zoomControl={false}
         style={{ height: "91vh" }}
@@ -210,7 +214,7 @@ export const BasicMap = () => {
           ))}
 
           {/* Start | Bangladesh's GeoJSON */}
-          <LayersControl.Overlay checked={false} name="Show Bangladesh's area">
+          <LayersControl.Overlay checked={false} name="Bangladesh's Area">
             {geoJSONData && (
               <BangladeshGeoJSON
                 data={geoJSONData}
@@ -222,10 +226,16 @@ export const BasicMap = () => {
           {/* End | Bangladesh's GeoJSON */}
 
           {/* Start | Bangladesh's Cities */}
-          <LayersControl.Overlay checked={false} name="Bangladesh's cities">
+          <LayersControl.Overlay checked={false} name="Bangladesh's Cities">
             {bdCities && <BangladeshCities citiesData={bdCities} />}
           </LayersControl.Overlay>
           {/* End | Bangladesh's Cities */}
+
+          {/* Start | Bangladesh's Rivers */}
+          <LayersControl.Overlay checked={false} name="Bangladesh's Rivers">
+            {bdRivers && <GeoJSONMap data={bdRivers} />}
+          </LayersControl.Overlay>
+          {/* End | Bangladesh's Rivers */}
         </LayersControl>
 
         {/* Start | User's current location */}
