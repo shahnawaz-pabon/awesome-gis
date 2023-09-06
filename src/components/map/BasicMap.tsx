@@ -104,7 +104,6 @@ export const BasicMap = () => {
         zoom={8}
         id="my-map"
         zoomControl={false}
-        style={{ height: "91vh" }}
       >
         <LayersControl position="topright">
           <LayersControl.BaseLayer checked name="OpenStreetMap">
