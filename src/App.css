@@ -197,6 +197,10 @@ main {
   width: 40px;
 }
 
+#my-map {
+  height: calc(100vh - var(--header-height) - 1rem);
+}
+
 /* Main Body CSS */
 
 /* Sidebar's CSS */
