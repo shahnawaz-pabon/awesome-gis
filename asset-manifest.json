@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/awesome-gis/static/css/main.256b2416.css",
+    "main.css": "/awesome-gis/static/css/main.278f8bad.css",
     "main.js": "/awesome-gis/static/js/main.933918df.js",
     "static/js/787.10c9de37.chunk.js": "/awesome-gis/static/js/787.10c9de37.chunk.js",
     "index.html": "/awesome-gis/index.html",
-    "main.256b2416.css.map": "/awesome-gis/static/css/main.256b2416.css.map",
+    "main.278f8bad.css.map": "/awesome-gis/static/css/main.278f8bad.css.map",
     "main.933918df.js.map": "/awesome-gis/static/js/main.933918df.js.map",
     "787.10c9de37.chunk.js.map": "/awesome-gis/static/js/787.10c9de37.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.256b2416.css",
+    "static/css/main.278f8bad.css",
     "static/js/main.933918df.js"
   ]
 }
